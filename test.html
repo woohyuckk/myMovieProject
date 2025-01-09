@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사진 앨범</title>
+    <style>
+        /* 전체 컨테이너 스타일 */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr); /* 6열로 나눔 */
+            gap: 10px; /* 이미지 간격 */
+            padding: 10px;
+        }
+
+        /* 각 이미지 스타일 */
+        .gallery img {
+            width: 100%; /* 이미지가 셀을 꽉 채우도록 */
+            height: auto; /* 비율 유지 */
+            border-radius: 5px; /* 모서리 둥글게 (선택사항) */
+        }
+
+        /* 반응형 처리 */
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr); /* 화면이 작아지면 3열 */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr); /* 화면이 더 작아지면 2열 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>사진 앨범</h1>
+    <div class="gallery">
+        <!-- 사진들 -->
+        <img src="https://i.namu.wiki/i/JNb7TQzrhupM_4f9Dof8n_Avr0MjLrE2--7D-xopVReWPLfHPoaZCvAcODzDB2krOwTrFNN9s970cKTYqEnMrQ.webp" alt="Image 1">
+        <img src="https://i.namu.wiki/i/JNb7TQzrhupM_4f9Dof8n_Avr0MjLrE2--7D-xopVReWPLfHPoaZCvAcODzDB2krOwTrFNN9s970cKTYqEnMrQ.webp" alt="Image 2">
+        <img src="https://via.placeholder.com/150" alt="Image 3">
+        <img src="https://via.placeholder.com/150" alt="Image 4">
+        <img src="https://via.placeholder.com/150" alt="Image 5">
+        <img src="https://via.placeholder.com/150" alt="Image 6">
+        <img src="https://via.placeholder.com/150" alt="Image 7">
+        <img src="https://via.placeholder.com/150" alt="Image 8">
+        <img src="https://via.placeholder.com/150" alt="Image 9">
+        <img src="https://via.placeholder.com/150" alt="Image 10">
+        <img src="https://via.placeholder.com/150" alt="Image 11">
+        <img src="https://via.placeholder.com/150" alt="Image 12">
+    </div>
+</body>
+</html>
