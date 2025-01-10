@@ -5,192 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="styleCss" href="style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/modal.css">
+    <script type="module" src="./SCRIPT/main.js"></script>
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gaegu&family=Gowun+Batang&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gaegu&family=Gowun+Batang&family=Jua&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-        body {
-            display: block;
-            margin: auto;
-
-        }
-
-        .main {
-            height: 300px;
-
-            font-family: "Montserrat", serif;
-            font-optical-sizing: auto;
-            font-weight: bold;
-            font-style: normal;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            background-color: black;
-        }
-
-        .text {
-            display: inline-block;
-            /*  */
-            animation: slide-in 6s ease-in-out infinite;
-            position: relative;
-            font-size: 72px;
-            text-shadow: 0px 0px 4px white;
-        }
-
-        @keyframes slide-in {
-            0% {
-                transform: translateX(0%);
-                opacity: 0;
-            }
-
-            25% {
-                transform: translateX(0%);
-                opacity: 1;
-            }
-
-            75% {
-                transform: translateX(0%);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateX(-100%);
-                opacity: 1;
-            }
-
-
-
-        }
-
-        .text span {
-            display: inline-block;
-            animation: color-change 5s infinite;
-        }
-
-        @keyframes color-change {
-            0% {
-                color: black
-            }
-
-            20% {
-                color: grey;
-            }
-
-            40% {
-                color: white;
-            }
-
-            60% {
-                color: white;
-            }
-
-            80% {
-                color: grey;
-            }
-
-            100% {
-                color: black;
-            }
-        }
-
-        /* nth-child()는 특정 부모 요소의 자식 중에서 패턴에 맞는 요소를 선택하는 데 사용하는 가상 클래스(pseudo-class) 내부 내용엔 스타일 지정을 한다 */
-        .text span:nth-child(1) {
-            animation-delay: 0s;
-        }
-
-        /* 각각의 글자(span)에 delay를 줘서 color가 움직이는 느낌을 주도록 함*/
-        .text span:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .text span:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        .text span:nth-child(4) {
-            animation-delay: 0.6s;
-        }
-
-        .text span:nth-child(5) {
-            animation-delay: 0.8s;
-        }
-
-        .text span:nth-child(6) {
-            animation-delay: 1s;
-        }
-
-        .text span:nth-child(8) {
-            animation-delay: 1.2s;
-        }
-
-        .text span:nth-child(9) {
-            animation-delay: 1.4s;
-        }
-
-        .text span:nth-child(10) {
-            animation-delay: 1.6s;
-        }
-
-        .text span:nth-child(11) {
-            animation-delay: 1.8s;
-        }
-
-        .text span:nth-child(12) {
-            animation-delay: 2s;
-        }
-
-
-        .searchInput {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: row;
-            margin-top: 30px;
-        }
-
-        .searchInput>input {
-            height: 34px;
-            width: 480px;
-            padding: 10px 0 10px 0;
-            font-size: 20px;
-
-        }
-
-        .searchIcon {
-            height: 54px;
-            width: 40px;
-            align-content: center;
-            justify-content: center;
-            border: 2px solid white;
-            border-radius: ;
-        }
-
-
-        .movieCards {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            /* 6열로 나눔 */
-
-            margin: 20px auto 20px auto;
-            /* 이미지 간격 */
-            /* autofit minmax 찾아보기 */
-            padding: 10px;
-        }
-
-        .movieCard {
-            border : 1px solid black;
-            width : 300px;
-            height: 550px;
-            margin: 20px auto 20px auto;
-        }
-    </style>
 </head>
-
 
 
 <body>
@@ -212,26 +31,38 @@
                 <span>Y</span>
             </div>
             <div class="searchInput">
-                <div class="searchIcon">
-                    <span style="color:white"> 검색</span>
-                </div>
-                <input type="text" placeholder="검색어를 입력해주세요.">
+                <input type="text" id="search-text" placeholder="검색어를 입력해주세요.">
+                <button id="search-btn">↵</button>
+            </div>
+            <div class="page-btn">
+                <button id="prev-btn"> 이전 </button>
+                <button id="next-btn"> 다음</button>
             </div>
         </div>
     </header>
     <div class="movieCards" id="movie-list">
 
-
-
-
     </div>
     <h1>Popular Movies</h1>
 
+    <div class="modal active" id="modal">
+        <div class="modal-card">
+            <div class="btns">
+                <a href="" class="btn-bookmark">⭐</a>
+                <a href=#none class="btn-close" id="modal-closebtn">X</a>
+            </div>
+            <h1>Title</h1>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwBzaTXRVIAxB6WODfRF_jMpnvXarYlTnCWlPxJi1X-FS-9wCLj6AFHA4&s" alt="None">
+            <p class="movie-overview">Overview: <span id="overview"></span></p>
+            <p class="movie-release">Release Date: <span id="release-date"></span></p>
+            <p class="movie-vote">⭐ Rating: <span id="vote-average"></span></p>
+        </div>
+    </div>
 
 </body>
 <footer>
     <div>Copyright</div>
 </footer>
-<script type="module" src="main.js"> </script>
+
 
 </html>

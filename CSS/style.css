@@ -1,0 +1,220 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gaegu&family=Gowun+Batang&family=Jua&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin:0;
+    
+}
+
+.main {
+    height: 300px;
+
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: black;
+}
+
+/* main text " MOVIE FACTORY */
+.text {
+    display: inline-block;
+    animation: slide-in 6s ease-in-out infinite;
+    position: relative;
+    font-size: 72px;
+    text-shadow: 0px 0px 4px white;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(0%);
+        opacity: 0;
+    }
+
+    25% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+    75% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+
+
+
+}
+
+.text span {
+    display: inline-block;
+    animation: color-change 5s infinite;
+}
+
+@keyframes color-change {
+    0% {
+        color: black
+    }
+
+    20% {
+        color: grey;
+    }
+
+    40% {
+        color: white;
+    }
+
+    60% {
+        color: white;
+    }
+
+    80% {
+        color: grey;
+    }
+
+    100% {
+        color: black;
+    }
+}
+
+/* nth-child()는 특정 부모 요소의 자식 중에서 패턴에 맞는 요소를 선택하는 데 사용하는 가상 클래스(pseudo-class) 내부 내용엔 스타일 지정을 한다 */
+.text span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+/* 각각의 글자(span)에 delay를 줘서 color가 움직이는 느낌을 주도록 함*/
+.text span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.text span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.text span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.text span:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.text span:nth-child(6) {
+    animation-delay: 1s;
+}
+
+.text span:nth-child(8) {
+    animation-delay: 1.2s;
+}
+
+.text span:nth-child(9) {
+    animation-delay: 1.4s;
+}
+
+.text span:nth-child(10) {
+    animation-delay: 1.6s;
+}
+
+.text span:nth-child(11) {
+    animation-delay: 1.8s;
+}
+
+.text span:nth-child(12) {
+    animation-delay: 2s;
+}
+
+
+.searchInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.searchInput>input {
+    height: 34px;
+    width: 480px;
+    padding: 10px 0 10px 0;
+    font-size: 20px;
+
+}
+.searchInput> button{
+    height: 100%;
+    width:10%;
+    font-size: 30px;
+}
+
+.page-btn >button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    margin-top: 10px;
+}
+
+
+
+.movieCards {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    /* 1fr씩 6열로 나눔 */
+    width: 100%;
+    max-width: 1500px;
+    /* 최대 너비를 1400px로 설정 */
+    justify-content: center;
+    /* justify-content 전체열 묶음을 가운데로, justify-item 각각의 아이템이 가운데로*/
+    margin: 0 auto 0 auto;
+}
+
+/* movieCards의 item (카드) */
+.movieCard {
+    /* 카드의 전체 크기를 먼저 정해두고 */
+    width: 300px;
+    height: 400px;
+    /* 원하는 카드 높이로 설정 */
+    margin: 10px;
+    /* 그리드 레이아웃 설정 */
+    display: grid;
+    grid-template-rows: 75% 15% 10%;
+    /* grid의 320px을 3행을 전체 height의 비율로 설정 */
+    border: 1px solid #ccc;
+    box-shadow: 0 3px 0 3px #323223;
+    border-radius: 5px;
+    overflow: hidden;
+    /* 내용 넘칠 경우 잘림 */
+}
+
+
+
+/* 카드 첫 번째 영역(이미지) */
+.movieCard> img {
+    width: 100%;
+    height: 100%;
+    /* 이미지의 비율을 유지하며 구역안에 가득 채우기 */
+    object-fit: fill;
+    /* cover : 맞게 채운후 잘림 fill : 원래이미지크기를 레이아웃에 맞춤 */
+    display: block;
+    /* 이미지 사이 여백 없애려면 block으로 */
+}
+
+/* 카드 두 번째, 세 번째 영역(텍스트) */
+.movieCard>p {
+    margin: 0;
+    font-family: sans-serif;
+    /* font 뭐할지 결정하기 */
+    text-align: center;
+    /* 텍스트를 가운데 위치로 */
+    padding-top: 10px;
+    /* 높이 12.5% 안에서 가운데 정렬 */
+}
+
